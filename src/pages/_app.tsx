@@ -16,8 +16,8 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel='manifest' href='/manifest.json' />
 
         <title>$SHARL</title>
-        <meta name='description' content='$Sharl Huskensan - Cardonzo Founder' />
-        <meta name='keywords' content='cardano, blockchain, sharl, charles hoskinson, meme, coin, memecoin, community' />
+        <meta name='description' content='Fiwst pewe weviewd memecoin on Cardonzo. Founder of #1 PoS (Piece of Shit) blockchain.' />
+        <meta name='keywords' content='cardano, blockchain, sharl, sharl huskensan, charles hoskinson, meme, coin, memecoin, community' />
       </Head>
 
       <Component {...pageProps} />

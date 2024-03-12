@@ -20,7 +20,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
   const { screenWidth } = useScreenSize()
 
   const isMobile = screenWidth <= 820
-  const scale = Math.max(Math.min(screenWidth / 1400, 1.12), 1)
+  const scale = Math.max(Math.min(screenWidth / 1400, 1), 0.85)
 
   return (
     <main className='w-screen h-screen'>
@@ -46,10 +46,11 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
           transform: 'translate(0, -50%)',
         }}
       >
-        <div className='mx-4 my-2 w-96 text-center text-white'>
+        <div className='mx-4 my-2 text-center text-white'>
           <div>
             <h1 className='text-4xl'>${TICKER} Huskensan</h1>
-            <h2 className='text-2xl'>Cardonzo Founder</h2>
+            <p className='text-xl'>Fiwst pewe weviewd memecoin on Cardonzo</p>
+            <p className='text-2xl'>Founder of #1 PoS (Piece of Shit) blockchain</p>
           </div>
 
           <div className='my-4 gap-4 flex items-center justify-center'>
@@ -96,7 +97,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
             <Image src='/media/wall_art.png' alt='wall_art' width={1362 * 0.2 * scale} height={1580 * 0.2 * scale} priority unoptimized />
           </Link>
 
-          <div className='absolute bottom-10 right-64 animate-[point_0.5s_alternate_infinite]'>
+          <div className='absolute bottom-10 right-60 animate-[point_0.5s_alternate_infinite]'>
             <Image src='/media/transparent/arm.png' alt='arm' width={300 * 1 * scale} height={208 * 1 * scale} priority unoptimized />
           </div>
 
