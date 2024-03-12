@@ -15,9 +15,15 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
 
-        <title>$SHARL</title>
-        <meta name='description' content='Fiwst pewe weviewd memecoin on Cardonzo. Founder of #1 PoS (Piece of Shit) blockchain.' />
         <meta name='keywords' content='cardano, blockchain, sharl, sharl huskensan, charles hoskinson, meme, coin, memecoin, community' />
+        <meta name='description' content='Fiwst pewe weviewd memecoin on Cardonzo. Founder of #1 PoS (Piece of Shit) blockchain.' />
+
+        <meta property='og:title' content='$Sharl Huskensan' />
+        <meta property="og:type" content="meme.coin" />
+        <meta property='og:url' content='https://sharl.world' />
+        <meta property='og:image' content='https://sharl.world/media/coin/sharl_huskensan.png' />
+
+        <title>$SHARL</title>
       </Head>
 
       <Component {...pageProps} />
