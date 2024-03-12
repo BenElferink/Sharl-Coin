@@ -28,7 +28,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
         style={{
           width: isMobile ? '100vw' : 1600 * 0.63,
           height: isMobile ? '100vh' : 1024 * 0.63,
-          padding: isMobile ? '7rem 0 0 0' : '5rem',
+          padding: isMobile ? '5rem 0 0 0' : '5rem',
 
           display: 'flex',
           alignItems: isMobile ? 'start' : 'end',
