@@ -73,7 +73,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
             />
             <SocialIcon
               network='youtube'
-              url='https://www.youtube.com/channel/UCx8jpe92IZ0wKKW0wj4j2sw'
+              url='https://www.youtube.com/@SharlHusken'
               color='white'
               size='w-10 h-10'
               className='p-3 bg-yellow-300/30 hover:bg-yellow-300/50 rounded-full'
