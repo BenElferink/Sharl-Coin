@@ -29,7 +29,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
   return (
     <main className='w-screen h-screen flex items-center justify-center'>
       <div
-        className='flex flex-col sm:flex-row items-center justify-between sm:justify-center text-center'
+        className='flex flex-col items-center justify-between sm:justify-center text-center'
         style={{
           width: isMobile ? '100vw' : 600 * 1.3,
           height: isMobile ? '100vh' : 372 * 1.3,
