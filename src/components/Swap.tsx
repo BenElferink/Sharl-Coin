@@ -1,17 +1,13 @@
 import DexHunterSwap from '@dexhunterio/swaps'
 import '@dexhunterio/swaps/lib/assets/style.css'
 import useMount from '@/hooks/useMount'
-import useScreenSize from '@/hooks/useScreenSize'
 import { type DexHunterProps } from '@/pages'
 import { TOKEN_ID } from '@/constants'
 
 const Swap = ({ partnerName, partnerCode }: DexHunterProps) => {
   const { isMounted } = useMount()
-  const { screenWidth } = useScreenSize()
 
-  const isMobile = screenWidth <= 1100
-
-  if (!isMounted || isMobile) return null
+  if (!isMounted) return null
 
   //   return (
   //     <DexHunterSwap

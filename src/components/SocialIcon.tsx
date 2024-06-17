@@ -26,6 +26,7 @@ export type SocialNetwork =
   | 'x'
   | 'whatsapp'
   | 'twitch'
+  | 'medium'
 
 export interface SocialIconProps {
   url?: string
@@ -273,6 +274,22 @@ const SocialIcon = (props: SocialIconProps) => {
             <path
               fill='currentColor'
               d='M391.17,103.47H352.54v109.7h38.63ZM285,103H246.37V212.75H285ZM120.83,0,24.31,91.42V420.58H140.14V512l96.53-91.42h77.25L487.69,256V0ZM449.07,237.75l-77.22,73.12H294.61l-67.6,64v-64H140.14V36.58H449.07Z'
+            />
+          </svg>
+        )
+
+      case 'medium':
+        return (
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            preserveAspectRatio='xMidYMid'
+            viewBox='0 -55 256 256'
+            className={finalSize}
+            style={{ color: color || '#000000' }}
+          >
+            <path
+              fill='currentColor'
+              d='M72.2 0c39.877 0 72.2 32.549 72.2 72.696 0 40.148-32.326 72.694-72.2 72.694-39.872 0-72.2-32.546-72.2-72.694C0 32.55 32.325 0 72.2 0zm115.3 4.258c19.938 0 36.101 30.638 36.101 68.438h.003c0 37.791-16.163 68.438-36.1 68.438-19.939 0-36.101-30.647-36.101-68.438 0-37.79 16.16-68.438 36.098-68.438zm55.803 7.129c7.011 0 12.697 27.449 12.697 61.31 0 33.85-5.684 61.31-12.697 61.31-7.013 0-12.694-27.452-12.694-61.31 0-33.859 5.684-61.31 12.694-61.31z'
             />
           </svg>
         )
