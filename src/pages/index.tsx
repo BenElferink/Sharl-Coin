@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { DEX_HUNTER_PARTNER_CODE, DEX_HUNTER_PARTNER_NAME, POLICY_ID, TICKER } from '@/constants'
 import useScreenSize from '@/hooks/useScreenSize'
 import Swap from '@/components/Swap'
-import SocialIcon from '@/components/SocialIcon'
+import SocialIcon, { SocialIconProps } from '@/components/SocialIcon'
 
 export const getServerSideProps = (async () => {
   const partnerName = DEX_HUNTER_PARTNER_NAME
@@ -21,88 +21,51 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
   const { isMobile, scale } = useMemo(
     () => ({
       isMobile: screenWidth <= 640,
-      scale: Math.max(Math.min(screenWidth / 1400, 1), 0.85),
+      scale: Math.max(Math.min(screenWidth / 1400, 1), 0.95),
     }),
     [screenWidth]
   )
 
   return (
-    <main className='w-screen h-screen flex items-center justify-center'>
-      <div
-        className='flex flex-col items-center justify-between sm:justify-center text-center'
-        style={{
-          width: isMobile ? '100vw' : 600 * 1.3,
-          height: isMobile ? '100vh' : 372 * 1.3,
-          padding: isMobile ? '1rem 0.5rem' : '5rem',
-          marginBottom: isMobile ? '0' : '15vh',
-
-          backgroundImage: isMobile ? 'none' : "url('/media/blackboard.png')",
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+    <main>
+      <div className='py-4 sm:py-8 w-screen h-screen flex flex-col items-center justify-between text-center'>
         <div>
-          <h1 className='text-4xl'>${TICKER} Huskens</h1>
-          <p className='text-xl'>The first peer reviewed meme & memecoin</p>
-          <p className='text-2xl'>Funder of #1 POS (Piece of Shit) blockchain</p>
+          <h1 className='text-5xl sm:text-7xl text-[#4f866b] drop-shadow-[-1px_1px_1px_#1f3922]'>${TICKER} Huskens</h1>
+          <p className='text-lg sm:text-2xl text-[#4f866b] drop-shadow-[-1px_1px_1px_#1f3922]'>The first peer reviewed meme & memecoin</p>
+          <p className='text-xl sm:text-3xl text-[#4f866b] drop-shadow-[-1px_1px_1px_#1f3922]'>Funder of #1 POS (Piece of Shit) blockchain</p>
 
           <div className='my-4 sm:my-8 gap-4 flex flex-wrap items-center justify-center'>
-            <SocialIcon
-              network='x'
-              url='https://x.com/sharlhuskens'
-              color='white'
-              size='w-10 h-10'
-              className='p-3 bg-neutral-950/30 hover:bg-neutral-950/50 sm:bg-yellow-300/30 sm:hover:bg-yellow-300/50 rounded-full'
-            />
-            <SocialIcon
-              network='discord'
-              url='https://discord.gg/JtPqNKEjhh'
-              color='white'
-              size='w-10 h-10'
-              className='p-3 bg-neutral-950/30 hover:bg-neutral-950/50 sm:bg-yellow-300/30 sm:hover:bg-yellow-300/50 rounded-full'
-            />
-            <SocialIcon
-              network='instagram'
-              url='https://www.instagram.com/sharlhuskens'
-              color='white'
-              size='w-10 h-10'
-              className='p-3 bg-neutral-950/30 hover:bg-neutral-950/50 sm:bg-yellow-300/30 sm:hover:bg-yellow-300/50 rounded-full'
-            />
-            <SocialIcon
-              network='youtube'
-              url='https://www.youtube.com/@SharlHusken'
-              color='white'
-              size='w-10 h-10'
-              className='p-3 bg-neutral-950/30 hover:bg-neutral-950/50 sm:bg-yellow-300/30 sm:hover:bg-yellow-300/50 rounded-full'
-            />
-            <SocialIcon
-              network='tiktok'
-              url='https://www.tiktok.com/@sharlhuskens'
-              color='white'
-              size='w-10 h-10'
-              className='p-3 bg-neutral-950/30 hover:bg-neutral-950/50 sm:bg-yellow-300/30 sm:hover:bg-yellow-300/50 rounded-full'
-            />
-            <SocialIcon
-              network='medium'
-              url='https://sharlhuskens.medium.com'
-              color='white'
-              size='w-10 h-10'
-              className='p-3 bg-neutral-950/30 hover:bg-neutral-950/50 sm:bg-yellow-300/30 sm:hover:bg-yellow-300/50 rounded-full'
-            />
+            {[
+              { network: 'x', url: 'https://x.com/sharlhuskens' },
+              { network: 'discord', url: 'https://discord.gg/JtPqNKEjhh' },
+              { network: 'instagram', url: 'https://instagram.com/sharlhuskens' },
+              { network: 'tiktok', url: 'https://tiktok.com/@sharlhuskens' },
+              { network: 'medium', url: 'https://sharlhuskens.medium.com' },
+              { network: 'apple-music', url: 'https://music.apple.com/us/artist/sharl-huskens/1752373195' },
+              { network: 'spotify', url: 'https://open.spotify.com/artist/0jQJ1k1LqNJ2vpsyeuKbtw' },
+              { network: 'youtube', url: 'https://youtube.com/@SharlHusken' },
+            ].map(({ network, url }) => (
+              <SocialIcon
+                key={url}
+                network={network as unknown as SocialIconProps['network']}
+                url={url}
+                color='white'
+                size='w-10 h-10'
+                className='p-3 bg-[#4f866b]/40 hover:bg-[#4f866b]/70 rounded-full'
+              />
+            ))}
           </div>
         </div>
 
-        <div>
-          {!isMobile ? <p className='my-2 text-sm'>{POLICY_ID}</p> : null}
+        <div className='flex flex-col items-center'>
           <Swap partnerName={partnerName} partnerCode={partnerCode} />
-          {isMobile ? <p className='my-2 text-sm'>{POLICY_ID}</p> : null}
+          <p className='mt-4 text-sm sm:text-lg text-[#4f866b] drop-shadow-[-1px_1px_1px_#1f3922]'>{POLICY_ID}</p>
         </div>
       </div>
 
-      <div className='fixed bottom-0 -right-[33%] sm:right-0 -z-10 sm:z-0 pointer-events-none'>
+      <div className='fixed bottom-0 -right-[30%] sm:-right-[10%] -z-10 pointer-events-none'>
         <Image
-          src='/media/transparent/logo.png'
+          src='/media/logo/transparent.png'
           alt='sharl'
           width={2000 * (isMobile ? 0.3 : 0.35) * scale}
           height={2000 * (isMobile ? 0.3 : 0.35) * scale}
