@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import { type InferGetServerSidePropsType, type GetServerSideProps } from 'next'
+import Image from 'next/image'
 import { useMemo } from 'react'
-import { DEX_HUNTER_PARTNER_CODE, DEX_HUNTER_PARTNER_NAME, POLICY_ID, TICKER } from '@/constants'
+import { Timeline } from 'react-twitter-widgets'
 import useScreenSize from '@/hooks/useScreenSize'
 import Swap from '@/components/Swap'
 import SocialIcon, { SocialIconProps } from '@/components/SocialIcon'
+import { DEX_HUNTER_PARTNER_CODE, DEX_HUNTER_PARTNER_NAME, POLICY_ID, TICKER } from '@/constants'
 
 export const getServerSideProps = (async () => {
   const partnerName = DEX_HUNTER_PARTNER_NAME
@@ -18,10 +19,10 @@ export type DexHunterProps = InferGetServerSidePropsType<typeof getServerSidePro
 export default function Page({ partnerName, partnerCode }: DexHunterProps) {
   const { screenWidth } = useScreenSize()
 
-  const { isMobile, scale } = useMemo(
+  const { isMobile, isDesktop } = useMemo(
     () => ({
       isMobile: screenWidth <= 640,
-      scale: Math.max(Math.min(screenWidth / 1400, 1), 0.95),
+      isDesktop: screenWidth >= 1280,
     }),
     [screenWidth]
   )
@@ -63,14 +64,27 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
         </div>
       </div>
 
-      <div className='fixed bottom-0 -right-[30%] sm:-right-[10%] -z-10 pointer-events-none'>
+      <div className='fixed bottom-0 -right-[30%] sm:-right-[20%] lg:-right-[10%] xl:right-0 -z-10 pointer-events-none'>
         <Image
           src='/media/logo/transparent.png'
           alt='sharl'
-          width={2000 * (isMobile ? 0.3 : 0.35) * scale}
-          height={2000 * (isMobile ? 0.3 : 0.35) * scale}
+          width={2000 * (isMobile ? 0.3 : 0.35)}
+          height={2000 * (isMobile ? 0.3 : 0.35)}
           priority
           unoptimized
+        />
+      </div>
+
+      <div className='hidden md:block max-w-[40vw] lg:max-w-[50vw] xl:max-w-[60vw] max-h-[55vh] overflow-hidden fixed top-1/2 -translate-y-[35%] left-[2rem] xl:left-1/3 xl:-translate-x-1/2'>
+        <Timeline
+          dataSource={{
+            sourceType: 'profile',
+            screenName: 'sharlhuskens',
+          }}
+          options={{
+            width: '777',
+            height: '555',
+          }}
         />
       </div>
     </main>
