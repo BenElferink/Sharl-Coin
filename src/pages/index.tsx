@@ -75,7 +75,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
         />
       </div>
 
-      <div className='hidden md:block max-w-[40vw] lg:max-w-[50vw] xl:max-w-[60vw] max-h-[55vh] overflow-hidden fixed top-1/2 -translate-y-[35%] left-[2rem] xl:left-1/3 xl:-translate-x-1/2'>
+      <div className='hidden md:block max-w-[35vw] lg:max-w-[45vw] xl:max-w-[55vw] max-h-[45vh] overflow-hidden fixed top-1/2 -translate-y-[35%] left-[2rem] xl:left-1/3 xl:-translate-x-1/2'>
         <Timeline
           dataSource={{
             sourceType: 'profile',
