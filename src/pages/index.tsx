@@ -17,12 +17,11 @@ export const getServerSideProps = (async () => {
 export type DexHunterProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
 export default function Page({ partnerName, partnerCode }: DexHunterProps) {
-  const { screenWidth } = useScreenSize()
+  const { screenWidth, screenHeight } = useScreenSize()
 
-  const { isMobile, isDesktop } = useMemo(
+  const { isMobile } = useMemo(
     () => ({
       isMobile: screenWidth <= 640,
-      isDesktop: screenWidth >= 1280,
     }),
     [screenWidth]
   )
@@ -64,7 +63,7 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
         </div>
       </div>
 
-      <div className='fixed bottom-0 -right-[30%] sm:-right-[20%] lg:-right-[10%] xl:right-0 -z-10 pointer-events-none'>
+      <div className='fixed bottom-0 -right-[33%] sm:-right-[22%] lg:-right-[11%] -z-10 pointer-events-none'>
         <Image
           src='/media/logo/transparent.png'
           alt='sharl'
@@ -75,15 +74,15 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
         />
       </div>
 
-      <div className='hidden md:block max-w-[35vw] lg:max-w-[45vw] xl:max-w-[55vw] max-h-[45vh] overflow-hidden fixed top-1/2 -translate-y-[35%] left-[2rem] xl:left-1/3 xl:-translate-x-1/2'>
+      <div className='hidden md:block max-w-[40vw] lg:max-w-[50vw] xl:max-w-[60vw] max-h-[45vh] overflow-hidden fixed top-1/2 -translate-y-[35%] left-[1rem] xl:left-1/3 xl:-translate-x-1/2'>
         <Timeline
           dataSource={{
             sourceType: 'profile',
             screenName: 'sharlhuskens',
           }}
           options={{
-            width: '700',
-            height: '500',
+            width: '690',
+            height: screenHeight * 0.45,
           }}
         />
       </div>
