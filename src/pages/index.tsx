@@ -82,8 +82,8 @@ export default function Page({ partnerName, partnerCode }: DexHunterProps) {
             screenName: 'sharlhuskens',
           }}
           options={{
-            width: '777',
-            height: '555',
+            width: '700',
+            height: '500',
           }}
         />
       </div>
